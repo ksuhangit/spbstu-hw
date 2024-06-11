@@ -1,3 +1,0 @@
-﻿  20240415_Homework_1.cpp
-C:\Users\Ксения\source\repos\Шемякин_С++\20240415_Homework_1\20240415_Homework_1\20240415_Homework_1.cpp(32,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  20240415_Homework_1.vcxproj -> C:\Users\Ксения\source\repos\Шемякин_С++\20240415_Homework_1\x64\Debug\20240415_Homework_1.exe

@@ -1,3 +1,0 @@
-﻿  SortedList.cpp
-C:\Users\Ксения\source\repos\Шемякин_С++\05_old\05_old\SortedList.cpp(28,1): warning C4715: SortedList::operator=: значение возвращается не при всех путях выполнения
-  05_old.vcxproj -> C:\Users\Ксения\source\repos\Шемякин_С++\05_old\x64\Debug\05_old.exe

@@ -1,5 +1,0 @@
-﻿03_classes.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl GeographicPoint::GeographicPoint(double,double)" (??0GeographicPoint@@QEAA@NN@Z) в функции main.
-03_classes.obj : error LNK2019: ссылка на неразрешенный внешний символ "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class GeographicPoint const &)" (??6@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV01@AEBVGeographicPoint@@@Z) в функции main.
-03_classes.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: double __cdecl GeographicPoint::getDistance(class GeographicPoint const &)" (?getDistance@GeographicPoint@@QEAANAEBV1@@Z) в функции main.
-03_classes.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: int __cdecl GeographicPoint::getTimeZoneMinutes(void)const " (?getTimeZoneMinutes@GeographicPoint@@QEBAHXZ) в функции main.
-C:\Users\Ксения\source\repos\Шемякин_С++\03_classes\x64\Debug\03_classes.exe : fatal error LNK1120: неразрешенных внешних элементов: 4
