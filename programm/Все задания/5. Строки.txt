@@ -1,0 +1,176 @@
+﻿// Ilia Shemiakin, 2023
+// Cтроки
+
+#include <iostream>
+#include <iomanip>	// для манипулятора setw()
+#include <cstring>	// для функций, работающих с char*-строками
+#include <string>   // для класса std::string
+
+// Объявления функций (определения в конце файла)
+
+// Обратите внимание, что при работе с char*-строками в функции обычно не передаётся размер,
+// т.к. конец строки определяется не размером массива, а символом '\0',
+// однако, в некоторых случаях можно для большей безопасности передать размер массива,
+// в который записывается результат
+
+// Функция, возвращаюшая количество символов в строке
+// const char* str - передаваемая строка
+int length(const char* str);
+
+// Функция, копирующая строку
+// const char* src - копируемая строка
+// const char* dest - строка, в которую происходит копирование
+// возвращаемое значение - указатель на начало скопированной строки
+char* copy(char* dest, const char* src);
+
+// Функция, переворачивающая строку
+// const std::string& str - исходная строка
+std::string reverse(const std::string& str);
+
+int main()
+{
+    // Массивы символов
+
+    // Строки в C и C++ реализуются как массивы элементов char (так называемые char*-строки)
+    // Важно помнить, что все char*-строки завершаются символьной константой '\0', ASCII код которой равен 0
+    // '\0' называется нулевым символом и обозначает логический конец строки
+
+    const int MAX_N_STRING = 20;
+    char strChar[MAX_N_STRING] = "";
+
+    std::cout << "Enter string without spaces: ";
+    std::cin >> std::setw(MAX_N_STRING) >> strChar;
+    std::cout << "You entered: " << strChar << '\n';
+    std::cout << "String length: " << length(strChar) << '\n';
+
+    // Обратите внимание:
+    // 1. У строк также есть размер, который должен быть указан. 
+    //    Если размер заранее неизвестен - нужно взять с запасом
+    // 2. Чтобы избежать переполнения в программе использован манипулятор setw. 
+    //    Если введённая строка окажется больше MAX_STRING_SIZE,
+    //    то она будет обрезана и последним символом strChar[19] будет '\0'
+    //    (попробуйте убрать  setw и ввести длинную строку)
+    // 3. Операторы "<<" и ">>" знают, что ожидается ввод/вывод строки (циклов не требуется)
+    // 4. Строка не может содержать пробелов (всё, что после пробела просто отбрасывается), 
+    //    т.к. оператор ">>" считает пробел символом-разделителем
+
+    // В стандартной библиотеке языка имеется файл <cstring>, содержащий функции для работы с char*-строками.
+    // Например, в нём есть стандартная функция, возвращающая длину строки:
+    std::cout << "String length (cstring): " << std::strlen(strChar) << '\n';
+
+    std::cout << '\n';
+
+    // Ввод строки с пробелами
+
+    std::cout << "Enter string with spaces: ";
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.getline(strChar, MAX_N_STRING);
+
+    std::cout << "You entered: " << strChar << '\n';
+    std::cout << "String length: " << length(strChar) << '\n';
+    // getline - метод класса istream, аргументы - массив и его размер (для предотвращения переполнения)
+    // ignore - метод объекта istream для очистки потока ввода после операции ">>",  
+    // аргументы - кол-во символов для очистки и символ-разделитель (тоже будет очищен)
+    // выражение std::numeric_limits<std::streamsize>::max() возвращает максимально возможный размер буфера,
+    // т.е. в этом случае удалятся все символы до указанного разделителя
+
+    std::cout << '\n';
+
+    // скопируем strChar в strCharCopy
+
+    char strCharCopy[MAX_N_STRING] = "";
+    copy(strCharCopy, strChar);
+
+    std::cout << "strChar: " << strChar << '\n';
+    std::cout << "strCharCopy: " << strCharCopy << '\n';
+
+    std::cout << '\n';
+
+    // Класс string из стандартной библиотеки шаблонов (STL; необходимо подключить <string>)
+
+    // с объектами string можно обращаться как с обычными переменными
+    std::string firstStr("firstStr");     // 1 способ инициализации
+    std::string secondStr = "secondStr";  // 2 способ инициализации
+    std::string thirdStr;                 // без инициализации
+
+    thirdStr = firstStr + " plus " + secondStr;
+    std::cout << "thirdStr: " << thirdStr << '\n';
+
+    std::cout << "Reversed thirdStr: " << reverse(thirdStr) << '\n';
+
+    // Класс string содержит множество встроенных методов
+    // Один из них - метод find возвращает позицию вхождения подстроки в строку либо -1 (std::string::npos)
+
+    std::cout << "Enter first string: ";
+    std::cin >> firstStr;
+
+    std::cout << "Enter second string: ";
+    std::cin >> secondStr;
+
+    int n = firstStr.find(secondStr);
+
+    if (n != std::string::npos)
+    {
+        std::cout << "Second string is in the first string on position " << n << '\n';
+    }
+    else
+    {
+        std::cout << "Second string is not in the first string\n";
+    }
+
+    return 0;
+}
+
+// Функция, возвращаюшая количество символов в строке
+// const char* str - передаваемая строка
+int length(const char* str)
+{
+    int result = 0;
+    while (*str)
+    {
+        ++result;
+        ++str;
+        // обратите внимание, что запись const char* str запрещает менять значение по указателю,
+        // но не мешает менять сам указатель
+    }
+    return result;
+}
+
+// Функция, копирующая строку
+// const char* src - копируемая строка
+// const char* dest - строка, в которую происходит копирование
+// возвращаемое значение - указатель на начало скопированной строки
+// ВАЖНО!!! строка dest должна быть достаточного размера, чтобы вместить строку src (включая '\0'),
+// иначе возникнет неопределённое поведение
+// (для большей защиты можно было бы добавить размер dest в качестве параметра функции)
+char* copy(char* dest, const char* src)
+{
+    int i = 0;
+    while (*src)
+    {
+        *(dest + i) = *src;
+        ++i;
+        ++src;
+    }
+    *(dest + i) = '\0';
+    return dest;
+}
+
+// Функция, переворачивающая строку
+// const std::string& str - исходная строка
+// строки std::string, как и другие объекты, следует передавать в функции по ссылкам, чтобы избежать копирования
+std::string reverse(const std::string& str)
+{
+    // класс std::string сам управляет размещением символов строки в памяти,
+    // а также обеспечивает корректное копирование строки при присваивании или возврате из функции
+    std::string result;
+    // резервируем необходимое количество памяти,
+    // чтобы избежать лишних действий
+    result.reserve(str.size());
+    for (int i = str.length() - 1; i >= 0; --i)
+    {
+        result += str[i];
+    }
+    return result;
+}

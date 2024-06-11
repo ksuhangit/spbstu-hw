@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EF38F412-A2AE-4A92-B29E-DF55A66EB04C}|05_memory\\05_memory.vcxproj|C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\LinkedList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EF38F412-A2AE-4A92-B29E-DF55A66EB04C}|05_memory\\05_memory.vcxproj|solutionrelative:05_memory\\LinkedList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF38F412-A2AE-4A92-B29E-DF55A66EB04C}|05_memory\\05_memory.vcxproj|C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\LinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EF38F412-A2AE-4A92-B29E-DF55A66EB04C}|05_memory\\05_memory.vcxproj|solutionrelative:05_memory\\LinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF38F412-A2AE-4A92-B29E-DF55A66EB04C}|05_memory\\05_memory.vcxproj|C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EF38F412-A2AE-4A92-B29E-DF55A66EB04C}|05_memory\\05_memory.vcxproj|solutionrelative:05_memory\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05\\main.cpp",
+              "RelativeDocumentMoniker": "..\\05\\main.cpp",
+              "ToolTip": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05\\main.cpp*",
+              "RelativeToolTip": "..\\05\\main.cpp*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-26T20:00:35.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LinkedList.h",
+              "DocumentMoniker": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\LinkedList.h",
+              "RelativeDocumentMoniker": "05_memory\\LinkedList.h",
+              "ToolTip": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\LinkedList.h",
+              "RelativeToolTip": "05_memory\\LinkedList.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-20T07:43:13.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LinkedList.cpp",
+              "DocumentMoniker": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\LinkedList.cpp",
+              "RelativeDocumentMoniker": "05_memory\\LinkedList.cpp",
+              "ToolTip": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\LinkedList.cpp",
+              "RelativeToolTip": "05_memory\\LinkedList.cpp",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAwEsAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-20T07:42:54.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\main.cpp",
+              "RelativeDocumentMoniker": "05_memory\\main.cpp",
+              "ToolTip": "C:\\Users\\\u041A\u0441\u0435\u043D\u0438\u044F\\source\\repos\\\u0428\u0435\u043C\u044F\u043A\u0438\u043D_\u0421\u002B\u002B\\05_memory\\05_memory\\main.cpp",
+              "RelativeToolTip": "05_memory\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-20T07:41:55.915Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

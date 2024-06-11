@@ -1,0 +1,278 @@
+﻿// Ilia Shemiakin, 2023
+// Шаблон коллекции
+
+#include <iostream>
+
+// классы исключений
+class StackEmptyException : public std::exception
+{
+public:
+  const char* what() const noexcept override
+  {
+    return "Stack is already empty";
+  }
+};
+
+class StackOverflowException : public std::exception
+{
+public:
+  const char* what() const noexcept override
+  {
+    return "Stack overflow";
+  }
+};
+
+// Шаблон абстрактного класса Stack, способный работать со значениями любых типов.
+// Слова template и class часть языка, T - имя типа (может быть названо как угодно)
+template <class T>
+class Stack
+{
+public:
+  Stack() = default;
+  virtual ~Stack() = default;             // виртуальный деструктор по умолчанию
+
+  // метод push принимает значение типа T
+  virtual void push(const T& data) = 0;
+  // метод pop удаляет значение с вершины стека;
+  virtual void pop() = 0;
+  // метод top возвращает значение с вершины стека, но не удаляет его;
+  virtual const T& top() const = 0;
+
+  // попробуйте реализовать методы копирования/перемещения самостоятельно
+  Stack(const Stack&) = delete;
+  Stack(Stack&&) = delete;
+  Stack& operator=(const Stack&) = delete;
+  Stack& operator=(Stack&&) = delete;
+};
+
+// Реализция стека на основе связного списка
+template <class T>
+class ListStack : public Stack<T>
+{
+public:
+  ListStack() :
+    head_(nullptr)
+  {}
+  ~ListStack() override;
+
+  void push(const T& data) override;
+  void pop() override;
+  const T& top() const override;
+
+private:
+  struct Node
+  {
+    T data;         // вместо конкретного типа, data имеет шаблонный тип T
+    Node* next;
+
+    Node(T data, Node* next = nullptr) :
+      data(data),
+      next(next)
+    {}
+  };
+
+  Node* head_;
+};
+
+template <class T>
+ListStack<T>::~ListStack()
+{
+  Node* temp = head_;
+  while (temp)
+  {
+    head_ = head_->next;
+    delete temp;
+    temp = head_;
+  }
+}
+
+template <class T>
+void ListStack<T>::push(const T& data)
+{
+  Node* newNode = new Node(data, head_);
+  head_ = newNode;
+}
+
+template <class T>
+void ListStack<T>::pop()
+{
+  if (head_ == nullptr)
+  {
+    throw StackEmptyException();
+  }
+  Node* temp = head_;
+  head_ = head_->next;
+  delete temp;
+}
+
+template <class T>
+const T& ListStack<T>::top() const
+{
+  if (head_ == nullptr)
+  {
+    throw StackEmptyException();
+  }
+  return head_->data;
+}
+
+// Реализция стека на основе массива
+template <class T>
+class ArrayStack : public Stack<T>
+{
+public:
+  ArrayStack(std::size_t maxSize) :
+    values_(new T[maxSize]),
+    maxSize_(maxSize),
+    size_(0)
+  {}
+  ~ArrayStack() override
+  {
+    delete[] values_;
+  }
+
+  void push(const T& data) override;
+  void pop() override;
+  const T& top() const override;
+
+private:
+  T* values_;             // указатель на массив с данными
+  std::size_t maxSize_;   // количество выделенной памяти
+  std::size_t size_;      // текущий размер
+};
+
+template <class T>
+void ArrayStack<T>::push(const T& data)
+{
+  if (size_ == maxSize_)
+  {
+    throw StackOverflowException();
+  }
+  values_[size_] = data;
+  ++size_;
+}
+
+template <class T>
+void ArrayStack<T>::pop()
+{
+  if (size_ == 0)
+  {
+    throw StackEmptyException();
+  }
+  --size_;
+}
+
+template <class T>
+const T& ArrayStack<T>::top() const
+{
+  if (size_ == 0)
+  {
+    throw StackEmptyException();
+  }
+  return values_[size_ - 1];
+}
+
+// Эта структура нужна только для примера,
+// далее несколько её экземпляров будет помещено в стек
+struct Example
+{
+  int i;
+  double d;
+  Example(int i, double d) :
+    i(i),
+    d(d)
+  {}
+};
+
+int main()
+{
+  Stack<double>* doubleStack = new ListStack<double>;     //стек, хранящий значения типа double
+  try
+  {
+
+    doubleStack->push(5.45);
+    doubleStack->push(10.782);
+    std::cout << doubleStack->top() << '\n';
+    doubleStack->pop();
+    std::cout << doubleStack->top() << '\n';
+    doubleStack->pop();
+    std::cout << doubleStack->top() << '\n';
+    doubleStack->pop();
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+
+  std::cout << '\n';
+
+  delete doubleStack;
+
+  Stack<char>* charStack = new ArrayStack<char>(3);       //стек, хранящий значения типа char
+  try
+  {
+    charStack->push('v');
+    charStack->push('f');
+    charStack->push('r');
+    charStack->push('d');
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+
+  try
+  {
+    std::cout << charStack->top() << '\n';
+    charStack->pop();
+    std::cout << charStack->top() << '\n';
+    charStack->pop();
+    std::cout << charStack->top() << '\n';
+    charStack->pop();
+    std::cout << charStack->top() << '\n';
+    charStack->pop();
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+
+  std::cout << '\n';
+
+  delete charStack;
+
+  try
+  {
+    ListStack<Example> exampleStack;       // стек, хранящий экземпляры структуры Example
+
+    exampleStack.push(Example(5, 5.5));
+    exampleStack.push(Example(7, 7.7));
+
+    std::cout << exampleStack.top().i << '\n';
+    exampleStack.pop();
+
+    Example temp = exampleStack.top();
+    std::cout << temp.d << '\n';
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+
+  return 0;
+}
+
+// Шаблоны позволяют использовать обобщённое программирование, реализуя алгоритмы и структуры данных без привязки
+// к конкретным типам данных. Кроме шаблонов классов, можно также создавать и шаблоны отдельных функций.
+
+// Можно использовать и несколько шаблонных типов в одном шаблоне:
+
+// template <class T, class A, class B, ...>
+
+// В момент компиляции шаблоны заменяются на конкретные реализации классов и функций.
+// Причём, будет создано столько реализаций класса, сколько раз шаблон был использован с различными типами.
+
+// В состав языка C++ входит, так называемая, стандартная библиотека шаблонов (STL)
+// STL содержит реализации наиболее часто используемых контейнеров
+// (например vector<T> - динамический массив, list<T> - список, map<T1, T2> - ассоциативный массив),
+// а так же итераторы для доступа к элементам контейнеров и алгоритмы для обработки данных 
+// (например, sort(), count(), find() и т.д.)

@@ -1,0 +1,3 @@
+﻿  Palindrom.cpp
+C:\Users\Ксения\source\repos\Шемякин_С++\02_HW\05_fun_palindrom\Palindrom\Palindrom\Palindrom.cpp(14,25): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Palindrom.vcxproj -> C:\Users\Ксения\source\repos\Шемякин_С++\02_HW\05_fun_palindrom\Palindrom\x64\Debug\Palindrom.exe

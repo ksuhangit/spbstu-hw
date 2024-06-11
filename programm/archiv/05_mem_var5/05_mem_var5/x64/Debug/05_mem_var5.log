@@ -1,0 +1,7 @@
+﻿  SortedList.cpp
+  SortedList.h
+C:\Users\Ксения\source\repos\Шемякин_С++\05_mem_var5\05_mem_var5\SortedList.cpp(157,18): error C2382: SortedList::moveList: переопределение; разные спецификации исключений
+  C:\Users\Ксения\source\repos\Шемякин_С++\05_mem_var5\05_mem_var5\SortedList.h(17,7):
+   см. объявление "SortedList::moveList"
+  
+  Создание кода...
