@@ -2,7 +2,7 @@ program lab1_10
 
    integer, parameter      :: M = 11, N = 11
    integer                 :: nofun = 0, k = 0, i = 0
-   real                  :: lowerbound = 0, upperbound = 0, h = 0, abserr = 0, relerr = 0, res = 0, errest = 0, flag = 0
+   real                    :: lowerbound = 0, upperbound = 0, h = 0, abserr = 0, relerr = 0, res = 0, errest = 0, flag = 0
    real                    :: x_k(N), B(N), C(N), D(N), xNodes(M), fNodes(M)
    real                    :: result(N), spline_result(N)
    
